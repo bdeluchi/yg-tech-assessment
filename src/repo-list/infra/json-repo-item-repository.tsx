@@ -1,4 +1,5 @@
 import reposJSON from "./list.json";
+import {RepoItemRepository} from "../repo-item-repository";
 
 interface ApiRepoItem {
     id: number;
@@ -8,8 +9,14 @@ interface ApiRepoItem {
     url: string;
 }
 
+export function getJSONRepoItemRepository(): RepoItemRepository {
+    return {
+        getAll,
+    }
+}
 
-export async function getAll(): Promise<ApiRepoItem[]> {
+
+async function getAll(): Promise<ApiRepoItem[]> {
     const repos  = reposJSON.map((repo: ApiRepoItem) => ({
         id: repo.id,
         name: repo.name,
