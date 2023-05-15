@@ -1,6 +1,5 @@
 import reposJSON from "./list.json";
 
-// @ts-ignore
 interface ApiRepoItem {
     id: number;
     name: string;
@@ -10,7 +9,7 @@ interface ApiRepoItem {
 }
 
 
-async function getAll(): Promise<ApiRepoItem[]> {
+export async function getAll(): Promise<ApiRepoItem[]> {
     const repos  = reposJSON.map((repo: ApiRepoItem) => ({
         id: repo.id,
         name: repo.name,
