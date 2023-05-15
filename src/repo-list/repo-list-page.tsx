@@ -16,8 +16,11 @@ export function RepoListPage({repository}: { repository: RepoItemRepository }): 
     return (
         <>
             <h1>Repo list</h1>
-            {data && <ul>{data.map(({id, name, forks, stars}, i) => {
-                return (<li key={`${id}-i`}>{`${name}, forks: ${forks}, stars: ${stars}`}</li>)
+            {data && <ul>{data.map(({id, name, forks, stars, url}, i) => {
+                return (
+                    <li key={`${id}-${i}`}>
+                        <a href={url}>{`${name}`}</a>, {`forks: ${forks}, stars: ${stars}`}
+                    </li>)
             })}</ul>
             }
         </>
