@@ -5,18 +5,21 @@ import {RepoItem} from "./domain/repo-item";
 export function RepoListPage({repository}: { repository: RepoItemRepository }): ReactElement {
     const [repos, setRepos] = React.useState<RepoItem[]>([]);
     const [status, setStatus] = React.useState<string>('idle')
+    const SUCCESS = 'success';
+    const LOADING = 'loading';
+    const FAILURE = 'failure';
 
-    const isSuccess = status === 'success'
-    const isLoading = status === 'loading'
-    const isFailure = status === 'failure'
+    const isSuccess = status === SUCCESS
+    const isLoading = status === LOADING
+    const isFailure = status === FAILURE
 
     React.useEffect(() => {
-        setStatus('loading')
+        setStatus(LOADING)
          repository.getAll().then((repos) => {
              setRepos(repos)
-             setStatus('success')
+             setStatus(SUCCESS)
         }).catch(() => {
-             setStatus('failure')
+             setStatus(FAILURE)
         })
     }, [repository])
 
