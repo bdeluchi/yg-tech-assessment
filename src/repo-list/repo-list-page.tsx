@@ -3,7 +3,6 @@ import {RepoItemRepository} from "./domain/repo-item-repository";
 import {RepoItem} from "./domain/repo-item";
 
 export function RepoListPage({repository}: { repository: RepoItemRepository }): ReactElement {
-    //pass query in
     const [repos, setRepos] = React.useState<RepoItem[]>([]);
     const [status, setStatus] = React.useState<string>('idle')
 
