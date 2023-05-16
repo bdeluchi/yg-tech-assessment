@@ -1,4 +1,4 @@
-import {RepoItemRepository} from "../../repo-item-repository";
+import {RepoItemRepository} from "../../domain/repo-item-repository";
 
 interface ApiRepoItem {
     node: {

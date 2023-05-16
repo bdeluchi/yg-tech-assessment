@@ -1,9 +1,8 @@
 import React, {ReactElement} from "react";
-import {RepoItemRepository} from "./repo-item-repository";
-import {RepoItem} from "./repo-item";
+import {RepoItemRepository} from "./domain/repo-item-repository";
+import {RepoItem} from "./domain/repo-item";
 
 export function RepoListPage({repository}: { repository: RepoItemRepository }): ReactElement {
-    //extract state+fetching into hook
     //pass query in
     const [repos, setRepos] = React.useState<RepoItem[]>([]);
     const [status, setStatus] = React.useState<string>('idle')
@@ -21,6 +20,7 @@ export function RepoListPage({repository}: { repository: RepoItemRepository }): 
              setStatus('failure')
         })
     }, [repository])
+
     return (
         <>
             <h1>Repo list</h1>

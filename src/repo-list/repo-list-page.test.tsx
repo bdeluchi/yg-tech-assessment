@@ -1,6 +1,6 @@
 import {render, screen} from "@testing-library/react";
 import {RepoListPage} from "./repo-list-page";
-import {RepoItem} from "./repo-item";
+import {RepoItem} from "./domain/repo-item";
 
 const getAll = jest.fn();
 it("displays fetched repo with all relevant fields", async () => {
