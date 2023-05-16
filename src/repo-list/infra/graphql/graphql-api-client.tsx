@@ -32,7 +32,7 @@ async function getAll() {
         const res = await fetch("https://api.github.com/graphql", {
             method: "POST",
             headers: {
-                Authorization: `bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
+                "Authorization": `bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({query}),
@@ -46,6 +46,8 @@ async function getAll() {
             url: repo.node.url
         }))
     } catch (error) {
+        //This is where I would introduce a logging tool to know of any errors that have occurred
+        console.log('Something unexpected happened', error)
         throw error;
     }
 }
