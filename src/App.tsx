@@ -1,10 +1,10 @@
 import React, {ReactElement} from 'react';
 import './App.css';
 import {RepoListPage} from "./repo-list/repo-list-page";
-import {getJSONRepoItemRepository} from "./repo-list/infra/json-repo-item-repository";
+import {getGraphQlClient} from "./repo-list/infra/graphql/graphql-api-client";
 
 function App(): ReactElement {
-    const repository = getJSONRepoItemRepository();
+    const repository = getGraphQlClient();
   return (
     <div className="App">
       <RepoListPage repository={repository} />

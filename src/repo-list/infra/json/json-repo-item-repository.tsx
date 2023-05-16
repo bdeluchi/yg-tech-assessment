@@ -1,5 +1,5 @@
 import reposJSON from "./list.json";
-import {RepoItemRepository} from "../repo-item-repository";
+import {RepoItemRepository} from "../../repo-item-repository";
 
 interface ApiRepoItem {
     id: number;
