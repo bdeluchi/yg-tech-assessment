@@ -29,7 +29,7 @@ export function RepoListPage({repository}: { repository: RepoItemRepository }): 
             {isSuccess && <ul>{repos.map(({id, name, forks, stars, url}, i) => {
                 return (
                     <li key={`${id}-${i}`}>
-                        <a href={url}>{`${name}`}</a>, {`forks: ${forks}, stars: ${stars}`}
+                        <a href={url}>{`${name}`}</a> - {`forks: ${forks}, stars: ${stars}`}
                     </li>)
             })}</ul>
             }
