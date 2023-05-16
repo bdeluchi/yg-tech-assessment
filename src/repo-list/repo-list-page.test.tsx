@@ -31,6 +31,21 @@ it("displays fetched list of multiple repos", async () => {
     expect(screen.getByText(/Remix/i)).toBeInTheDocument();
 });
 
-it.todo("shows loading status")
-it.todo("shows error message in case of any error")
+it("shows error message in case of any error", async () => {
+    getAll.mockRejectedValue(new Error('some error'))
+    render(<RepoListPage repository={{getAll}}/>)
+    expect(await screen.findByText('An error happened, please try again')).toBeInTheDocument()
+    expect(screen.queryByText(/React/i)).not.toBeInTheDocument();
+})
+
+it("shows loading state before displaying repo information", async () => {
+    const repo: RepoItem = {id: 1, name: 'React', forks: 1, stars: 2, url: 'random.org'}
+
+    getAll.mockResolvedValue([repo])
+    render(<RepoListPage repository={{getAll}}/>)
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(await screen.findByText(/React/i)).toBeInTheDocument();
+    expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
+})
+
 
