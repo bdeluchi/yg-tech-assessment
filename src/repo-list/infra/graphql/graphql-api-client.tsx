@@ -10,8 +10,10 @@ interface ApiRepoItem {
     }
 }
 
+const NUMBER_OF_RESULTS = 20
+
 const query = `{
-  search(type: REPOSITORY, query: "react", first: 20) {
+  search(type: REPOSITORY, query: "react", first: ${NUMBER_OF_RESULTS}) {
     edges {
       node {
         ... on Repository {
