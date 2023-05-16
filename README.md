@@ -2,7 +2,7 @@
 You will need to add a github personal token in a local .env file with name `REACT_APP_GITHUB_TOKEN`.
 
 # How to run the app
-You can use `npm start` to start the app and `npm test` to run all tests.
+You can use `npm start` to start the app and `npm test` to run all tests. You can also run the linter with `npm lint`.
 
 # Additional comments
 - The number of repos fetched from GraphQL is fixed to 20 in the query. 
